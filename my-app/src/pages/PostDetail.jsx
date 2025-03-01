@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
@@ -8,7 +8,13 @@ export default function PostDetail() {
 
   const [post, setPost] = useState();
 
-  setPost(posts.find((post) => post.id === parseInt(postId)));
+  useEffect(() => {
+    setPost(posts.find((post) => post.id === parseInt(postId)));
+  });
+
+  if (!post) {
+    return <p>게시물을 찾을 수 없습니다.</p>;
+  }
   return (
     <div>
       <h3>{post.title}</h3>
