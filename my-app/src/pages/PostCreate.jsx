@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { addPost } from '../store/postSlice';
+import { addPost } from '../store/slices/postsSlice';
+
 export default function PostCreate() {
   const [formData, setFormData] = useState({ title: '', content: '' });
   const dispatch = useDispatch();

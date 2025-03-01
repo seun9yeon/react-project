@@ -1,17 +1,25 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { createSlice } from "@reduxjs/toolkit";
 
-export default function Header() {
-  return (
-    <>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="posts">Posts</Link>
-        </li>
-      </ul>
-    </>
-  );
-}
+const initialState = {
+  isLoggedIn: false,
+  // isAdmin: false,
+  // user : {
+  //   name : 'anonimoususer'
+  // }
+};
+
+const authSlice = createSlice({
+  name: "auth",
+  initialState,
+  reducers: {
+    login: (state, action) => {
+      state.isLoggedIn = true;
+    },
+    logout: (state, action) => {
+      state.isLoggedIn = false;
+    },
+  },
+});
+
+export const { login, logout } = authSlice.actions;
+export default authSlice.reducer;
