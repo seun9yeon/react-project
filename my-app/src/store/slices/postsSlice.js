@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-
+import { useState } from 'react';
 
 const initialState = [
   {
@@ -27,6 +27,7 @@ const postsSlice = createSlice({
   initialState,
   reducers: {
     addPost: (state, action) => {
+      // 리스트에.push(새로운 데이터를)
       state.push(action.payload);
     },
   },
